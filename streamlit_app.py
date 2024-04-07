@@ -1,6 +1,5 @@
 import streamlit as st
 import mental_health as mh
-#llll
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Home", "Symptoms", "Personalized Coping Mechanisms", "Self Care", "Find What Works For You"])
 
