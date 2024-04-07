@@ -1,8 +1,7 @@
 import streamlit as st
 import mental_health as mh
-import database as db
 
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Home", "Symptoms", "Personalized Coping Mechanisms", "Self Care", "What you did daily", "Find What Works For You"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Home", "Symptoms", "Personalized Coping Mechanisms", "Self Care", "Find What Works For You"])
 
 with tab1:
   st.title("Flourish")
@@ -45,39 +44,6 @@ with tab4:
     st.write("Having hobbies is one of the best ways to combat mental illnesses. It distracts your mind from feeling sad and lets you have fun and be happy! Take up, for example, drawing, cooking, writing, crocheting, or athletics. There are so many different hobbies that can make you so special and unique! Enjoy the things life gives you.")
 
 with tab5:
-  st.title("What you did daily")
-
-  st.write("Select the Self Care methods you used today")
-  goals=db["goals"]
-  daily=[False]*len(goals)
-  count=0
-  for x in goals:
-    daily[count] = st.checkbox(x)
-    count+=1
-  if(st.button("Submit")):
-    comp_daily=0
-    comp = db["completed"]
-    for x in daily:
-      if x:
-        comp_daily+=1
-        comp+=1
-    st.write("you completed: "+str(comp_daily)+" of your daily goals today")
-    st.write("you have completed: "+str(comp)+" of your daily goals")
-    db["completed"]=comp
-  add=st.text_input("Add new goal")
-  if(st.button("Add")):
-    db["goals"].append(add)
-    st.write("added: " + add)
-  rem=st.text_input("Remove goal")
-  if(st.button("Remove")):
-    if(rem in goals):
-      db["goals"].remove(rem)
-      st.write("removed: " + rem)
-    else:
-      st.write("there is no goal called: " + rem)
-    st.write("reload the site to see the new goals")
-
-with tab6:
   st.title("Full List of Coping Mechanisms")
   st.write("Here is a full list of mechanisms that can help when coping with mental health issues.")
   st.write("Following some of these can still be benifitial even if you don't have a that mental disorder (As long as it's not taking medicine: you should not do that unless perscribed by a doctor).")
