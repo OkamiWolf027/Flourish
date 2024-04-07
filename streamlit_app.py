@@ -7,7 +7,7 @@ with tab1:
   st.title("Flourish")
   st.write("A healthy way of coping with mental health issues.")
   #Home screen
-  st.header("What Flourish Does")
+  st.header("What We Do")
   st.write("Coping with mental health issues can be hard, but Flourish can help! Recieve customized reccomendations based on your menthal health needs, or see everything we have to offer!")
 
   
